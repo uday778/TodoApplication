@@ -1,106 +1,82 @@
-# TodoApplication
-A full-featured Todo application built with Spring Boot, MySQL, and Thymeleaf that allows you to manage your tasks efficiently.
+# 📝 Todo Application
 
-# Features
-✅ Create new todo items
+A simple **Todo Management Application** built using **Spring Boot MVC**, **Thymeleaf**, **Bootstrap**, and **MySQL**.  
+The application demonstrates the use of **EntityManager** and performs complete **CRUD (Create, Read, Update, Delete)** operations.
 
-📋 Read and view all your todos
+---
 
-✏️ Update existing todo items
+## ⚙️ Tech Stack
+- **Spring Boot MVC** – Web framework
+- **Thymeleaf** – Server-side templating engine
+- **Bootstrap** – UI styling & responsive design
+- **MySQL** – Database
+- **EntityManager (JPA)** – Database operations
 
-🗑️ Delete todos you no longer need
+---
 
-🎨 Clean UI built with Thymeleaf and Bootstrap
+## 🚀 Features
+- Add a new Todo task
+- View all tasks
+- Update an existing task
+- Delete tasks
+- Responsive UI with Bootstrap
 
-💾 Persistent storage with MySQL database
+---
 
-# Technology Stack
-Backend: Spring Boot
+## 🛠️ Project Setup
 
-Database: MySQL
-
-Templating Engine: Thymeleaf
-
-Frontend: HTML, CSS, Bootstrap
-
-Build Tool: Maven
-
-# Prerequisites
-Before running this application, make sure you have the following installed:
-
-Java JDK 11 or higher
-
-MySQL Server 5.7 or higher
-
-Maven 3.6 or higher
-
-# Installation & Setup
-Clone the repository
-
+### 1. Clone the repository
+```bash
+git clone https://github.com/uday778/TodoApplication.git
+cd TodoApplication
 ```
-git clone <repository-url>
-cd todo-application
+### 2. Configure Database
+#### Create a MySQL database named ```todoapp```
 ```
-Configure MySQL Database
-
+CREATE DATABASE todoapp;
 ```
-CREATE DATABASE todo_db;
-CREATE USER 'todo_user'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON todo_db.* TO 'todo_user'@'localhost';
-FLUSH PRIVILEGES;
+#### Update your application.yml file with DB credentials:
 ```
-Update application properties
-Edit src/main/resources/application.properties with your database credentials:
-
-## properties
-spring.datasource.url=jdbc:mysql://localhost:3306/todo_db
-spring.datasource.username=todo_user
-spring.datasource.password=password
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
-### Build the application
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/todoapp
+    username: root
+    password: your_password_here
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 ```
-mvn clean install
-```
-### Run the application
+### 3. Build and Run the application
+#### Using Maven:
 ```
 mvn spring-boot:run
 ```
-Access the application
-Open your browser and navigate to ``` http://localhost:8080 ```
+#### Or, build the jar and run:
+```
+mvn clean package
+java -jar target/todo-application-0.0.1-SNAPSHOT.jar
+```
 
-Usage
-Viewing Todos
-The home page displays all your existing todo items
+## 📌 Usage
+Open your browser and navigate to:
+👉```  http://localhost:8080 ```
 
-Todos are listed in a clean, organized table format
+You can now:
 
-## Adding a New Todo
-Click the "Add New Todo" button
+- Add new todos
 
-Fill in the todo description
-Click "Save" to add the todo to your list
+- View todo list
 
-## Editing a Todo
-Click the "Edit" button next to any todo item
+- Edit tasks
 
-Modify the description in the form
-
-Click "Update" to save your changes
-
-## Deleting a Todo
-Click the "Delete" button next to the todo you want to remove
-
-Confirm the deletion in the confirmation dialog
-
-## Marking Todos as Complete
-Click the checkbox next to a todo to mark it as complete/incomplete
-
-Completed todos are visually distinguished from pending ones
+- Delete tasks
 
 
 
-## Contributing
+## 🤝Contribution
 Fork the repository
 
 Create a feature branch
@@ -109,5 +85,9 @@ Make your changes
 
 Submit a pull request
 
-## License
-This project is licensed under the MIT License.
+## 📜 License
+This project is licensed under the ***MIT Licens***.
+```
+Do you want me to also **add SQL script for the `todo` table** (so others don’t need to rely only on JPA `ddl-auto`)?
+```
+
